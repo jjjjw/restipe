@@ -1,0 +1,43 @@
+[
+
+ ;; recipe partition
+
+ {:db/id #db/id[:db.part/db],
+  :db/ident :recipes,
+  :db.install/_partition :db.part/db}
+
+ ;; recipe
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :recipe/uuid
+  :db/valueType :db.type/uuid
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/value
+  :db/doc "A recipe's uuid"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :recipe/name
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/fulltext true
+  :db/index true
+  :db/doc "A recipe's name"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :recipe/ingredient
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/many
+  :db/fulltext true
+  :db/doc "A recipe's ingredients"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :recipe/instructions
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "A recipe's instructions"
+  :db.install/_attribute :db.part/db}
+
+ ]
